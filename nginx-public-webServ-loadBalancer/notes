@@ -1,0 +1,16 @@
+This deployment has been trested on minikube
+
+Prerequisite:
+Running minikube or kubernetes cluster
+
+
+>kubectl apply -f deployment.yaml
+>kubectl apply -f loadballance.yaml
+
+The IP address and port can be displayed with the fillowing:
+>minikube service web-lb
+
+
+This works for images/servers that run a task that keeps them running.
+The yaml deployment files have been kept seporate to alow for further 
+development and simplicity.
