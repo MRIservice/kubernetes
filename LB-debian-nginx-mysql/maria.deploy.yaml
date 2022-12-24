@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mariadb-serv
+  labels:
+    app: nginx-web
+spec:
+  selector:
+    matchLabels:
+      app: nginx-web
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: nginx-web
+    spec:
+      containers:
+      - name: maria-db
+        image: mariadb:10.7
+        env:
+          - name: MYSQL_ROOT_PASSWORD
+            value: password
+          - name: MYSQL_DATABASE
+            value: wp-db
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "250m"
+        ports:
+         - containerPort: 3306

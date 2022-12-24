@@ -1,0 +1,22 @@
+# login to pod
+k exec -it <Pod Name> -- bash
+
+# install dnsutils and mysql client
+apt update && apt-get install dnsutils mariadb-client -y
+
+# DNS lookup
+# name from:
+# db-svc.yaml or 
+# kubectl get svc 
+
+nslookup nginx-mariadb-svc  > ns_lookup
+
+# Install maria-db client for remote access
+
+mysql -u <USER> -h <10.0.0.165> -p
+
+mysql -u root -h 10.96.0.10 -p
+
+
+command: ["/bin/sh"]
+args: ["-c", "touch SOME_FILE; while true; do echo hello; sleep 100000;done"]
