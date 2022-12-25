@@ -19,8 +19,10 @@ spec:
       containers:
       - name: nginx-web
         image: nginx
-        command: ["/bin/sh"]
-        args: ["-c", "touch SOME_FILE; while true; do echo hello; sleep 100000;done"]
+        
+        # command: ["/bin/sh"]
+        # args: ["-c", "touch SOME_FILE; while true; do echo hello; sleep 100000;done"]
+        # Once a command is completed IE touch the pod will die unless a loop or other is run to keep it alive.
         
         resources:
           limits:
